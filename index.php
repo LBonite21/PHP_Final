@@ -1,3 +1,4 @@
 ﻿<?php
-
-echo 'Hello World! TEst';
+header("Location: ./front-end/");
+exit;
+?>
