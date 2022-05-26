@@ -1,5 +1,34 @@
 /* MAP */
 
 #map {
-    height: 100%;
+    width: 80%;
+    height: 700px;
+    text-align: center;
+}
+
+#getCurrentLocation {
+    margin-top: 20px;
+}
+
+.center {
+    margin-top: 20px;
+}
+
+.bg-color {
+    background-color: #c55e09;
+}
+
+.img-size {
+    width: 550px;
+    margin-left: 25%;
+    margin-top: 60px;
+}
+
+.label-font {
+    font-size: 18pt;
+    font-weight: 600;
+}
+
+.error-txt {
+    color: antiquewhite;
 }
