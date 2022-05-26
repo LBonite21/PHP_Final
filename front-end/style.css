@@ -18,10 +18,14 @@
     background-color: #c55e09;
 }
 
-.img-size {
-    width: 550px;
-    margin-left: 25%;
-    margin-top: 60px;
+.brand-size {
+    height: 40px;
+}
+
+.logo-size {
+    width: 400px;
+    margin-left: 30%;
+    margin-top: 130px;
 }
 
 .label-font {
@@ -31,4 +35,14 @@
 
 .error-txt {
     color: antiquewhite;
+}
+
+.info-font-title {
+    font-size: 15pt;
+    font-weight: 600;
+}
+
+.info-font-body {
+    font-size: 12pt;
+    font-weight: 600;
 }

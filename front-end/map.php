@@ -18,11 +18,9 @@ $lng = $_GET['lng'];
 </body>
 
 <script>
-
     let map;
     let myMarker;
-    let marker;
-    let infoWindow;
+    let myInfoWindow;
 
     const init_Map = () => {
 
@@ -46,12 +44,12 @@ $lng = $_GET['lng'];
                 icon: './images/myPin.png'
             });
 
-            infoWindow = new google.maps.InfoWindow({
-               content: '<h4>You Are Here</h4>' 
+            myInfoWindow = new google.maps.InfoWindow({
+                content: '<h4>You Are Here</h4>'
             });
 
             myMarker.addListener('click', function() {
-                infoWindow.open(map, myMarker);
+                myInfoWindow.open(map, myMarker);
             });
 
             // Get courts
@@ -76,22 +74,37 @@ $lng = $_GET['lng'];
             .then(data => {
                 console.log(data);
                 data.forEach(court => {
-                    addMarker(court.geometry.location.lat, court.geometry.location.lng);
+                    addMarker(court.geometry.location.lat, court.geometry.location.lng, court.name, court.vicinity, court.rating);
+                    // console.log(court.geometry.location.lat, court.geometry.location.lng, court.name, court.vicinity, court.rating);
                 });
             });
     }
 
-    const addMarker = (lat, lng) => {
-        marker = new google.maps.Marker({
-                position: {
-                    lat: lat,
-                    lng: lng
-                },
-                map: map,
-                icon: './images/pin.png'
-            });
-    }
+    let marker;
+    let infoWindow;
 
+    const addMarker = (lat, lng, name, vin, rating) => {
+        marker = new google.maps.Marker({
+            position: {
+                lat: lat,
+                lng: lng
+            },
+            map: map,
+            icon: './images/pin.png'
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        google.maps.event.addListener(marker, 'click', (function(marker) {
+            return function() {
+                var content = `<p class="info-font-title">${name}</p>
+             <p class="info-font-body">Vicinity: ${vin}</p>
+             <p class="info-font-body">Rating: ${rating}</p>`;
+                infowindow.setContent(content);
+                infowindow.open(map, marker);
+            }
+        })(marker));
+
+    }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMjeysXDI0PhnFpUtplTd75RLojAFEI9k&callback=init_Map"></script>
 <?php include "footer.php" ?>

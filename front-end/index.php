@@ -20,7 +20,7 @@ $lng = $_GET['lng'];
                 <span class="error-txt mb-1" id="errorTxt"></span>
             </div>
         </form>
-        <img class="row img-size" src="/front-end/images/logo.png" alt="Logo">
+        <img class="row logo-size" src="/front-end/images/logo.png" alt="Logo">
     </div>
 
 </body>
