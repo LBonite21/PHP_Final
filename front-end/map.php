@@ -12,6 +12,7 @@ $lng = $_GET['lng'];
         <div class="row justify-content-center mt-4">
             <h1 class="p-3">Basketball Courts Near You!</h1>
             <div id="map"></div>
+            
         </div>
     </div>
 
@@ -98,7 +99,9 @@ $lng = $_GET['lng'];
             return function() {
                 var content = `<p class="info-font-title">${name}</p>
              <p class="info-font-body">Vicinity: ${vin}</p>
-             <p class="info-font-body">Rating: ${rating}</p>`;
+             <p class="info-font-body">Rating: ${rating}</p>
+             <a href="/front-end/">Home</a>
+             `;
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }

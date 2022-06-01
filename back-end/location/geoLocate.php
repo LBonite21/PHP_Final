@@ -6,27 +6,20 @@ function getLocation($address) {
     $API_KEY = "AIzaSyDMjeysXDI0PhnFpUtplTd75RLojAFEI9k";
 
     $location = "https://maps.google.com/maps/api/geocode/json?key=".$API_KEY."&address=".str_replace(" ", "+", $address);
-    
-    //echo $location;
-    
-    //$api_url = 'http://dummy.restapiexample.com/api/v1/employees';
-    
+
+
     //// Read JSON file
     $json_data = file_get_contents($location);
-    // return $json_data;
-    
-    //// Decode JSON data into PHP array
+
+//// Decode JSON data into PHP array
     $response_data = json_decode($json_data);
-    // echo $json_data;
-    
-    
+
     //// All user data exists in 'data' object
     $data = $response_data->results[0];
-    // echo $data->geometry->location->lat;
-    
+
     $lat = $data->geometry->location->lat;
     $lng = $data->geometry->location->lng;
-    
+
     if ($lat && $lng) {
         $arr = array(
             'lat' => $lat,
@@ -45,6 +38,8 @@ function getLocation($address) {
 if (isset($_POST['address']) && $_POST['address']) {
     $address = isset($_POST['address']) ? sanitizeInput($_POST['address']) : null;
     $result = getLocation($address);
+} else {
+    echo json_encode(json_decode('{"error": "Invalid address"}'));
 }
 
 ?>

@@ -16,7 +16,8 @@ create table if not exists Court (
 	primary key(id),
     id				int					not null	auto_increment,
     court_name		varchar(500)		not null,
-    coordinates		point				not null
+    lat				varchar(50)			not null,
+    lng				varchar(50)			not null
 );
 
 create table if not exists FavoriteCourts (
