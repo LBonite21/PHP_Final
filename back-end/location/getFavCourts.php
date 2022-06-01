@@ -16,7 +16,7 @@ function getFavCourts($dbConn) {
 
     return @mysqli_query($dbConn, $query);
 }
-$json = formatRecords(getCategories($dbConn));
+$json = formatRecords(getFavCourts($dbConn));
 if(!str_starts_with($json, "[")) {
     $json = json_encode(json_decode("[".formatRecords(getFavCourts($dbConn))."]"));
 }connClose($dbConn);

@@ -31,6 +31,7 @@ $lng = $_GET['lng'];
 
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Favorite</button>
+                        <p id="success" class="text-success"></p>
                     </div>
                 </form>
             </div>
@@ -136,8 +137,8 @@ $lng = $_GET['lng'];
 
     }
 
-    const favoriteCourt = async () => {
-        await fetch('../back-end/location/createFavoriteCourt.php', {
+    const favoriteCourt = () => {
+        fetch('../back-end/location/createFavoriteCourt.php', {
                 body: new URLSearchParams(new FormData(document.getElementById("favCourtForm"))).toString(),
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
@@ -146,6 +147,7 @@ $lng = $_GET['lng'];
             })
             .then(res => res.json())
             .then(data => {
+                document.getElementById('success').innerHTML = "Saved Court";
                 console.log(data);
             });
 

@@ -13,6 +13,7 @@ $lng = $_GET['lng'];
         <div class="row justify-content-center mt-4">
             <h1 class="text-center">Welcome to Hoops! Find a Court Near You!</h1>
         </div>
+        <p>143 S Main St, Salt Lake City, UT</p>
         <form id="getCurrentLocation" method="POST" action="/" onsubmit="getLocation(); return false;">
             <div class="form-group">
                 <label class="label-font" for="address" class="form-control-label">Enter an Address: </label>
