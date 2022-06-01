@@ -14,14 +14,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/front-end/favoriteCourts.php">Favorite Courts</a>
             </li>
-            <?php
-                if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
-                    echo "<li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/front-end/allCategories.php\">All Categories</a>
-                    </li>";
-                }
-            ?>
+
         </ul>
-        <a class="btn btn-<?php echo (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) ? "danger" : "success"; ?> my-2 my-sm-0" href="<?php echo (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) ? "/front-end/logOut.php\">Log out" : "/front-end/adminLogin.php\">Login"; ?></a>
     </div>
 </nav>

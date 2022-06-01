@@ -5,13 +5,6 @@ use PHPFinal;
 CREATE User if not exists 'MyUser'@'localhost' IDENTIFIED BY 'MyPass';
 GRANT ALL PRIVILEGES ON PHPFinal.* TO MyUser@localhost;
 
-create table if not exists Users (
-	primary key(id),
-    id				int				not null	auto_increment,
-    username		varchar(100)	not null	unique,
-    password_hash	varchar(100)	not null
-);
-
 create table if not exists FavoriteCourt (
 	primary key(id),
     id				int					not null	auto_increment,
