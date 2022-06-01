@@ -12,7 +12,7 @@ create table if not exists Users (
     password_hash	varchar(100)	not null
 );
 
-create table if not exists Court (
+create table if not exists FavoriteCourt (
 	primary key(id),
     id				int					not null	auto_increment,
     court_name		varchar(500)		not null,
@@ -20,9 +20,4 @@ create table if not exists Court (
     lng				varchar(50)			not null
 );
 
-create table if not exists FavoriteCourts (
-	primary key(id),
-    foreign key(court_id) references Court(id) on delete cascade,
-    id				int			not null	auto_increment,
-    court_id		int			not null
-);
+insert into FavoriteCourt(court_name, lat, lng) values ("Mountview Basketball Courts", "40.6265671", "-111.8450203");
