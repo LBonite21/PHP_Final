@@ -11,6 +11,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/front-end">Home</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/front-end/favoriteCourts.php">Favorite Courts</a>
+            </li>
             <?php
                 if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) {
                     echo "<li class=\"nav-item\">

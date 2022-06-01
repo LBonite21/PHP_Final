@@ -12,7 +12,29 @@ $lng = $_GET['lng'];
         <div class="row justify-content-center mt-4">
             <h1 class="p-3">Basketball Courts Near You!</h1>
             <div id="map"></div>
-            
+
+            <h2>Set Your Favorite Court!</h2>
+            <div class="container">
+                <form id="favCourtForm" method="POST" action="/" onsubmit="favoriteCourt(); return false;">
+                    <div class="form-group">
+                        <label for="courtName" class="form-control-label">Court Name: </label>
+                        <input class="form-control" type="text" name="courtName" placeholder="Court Name" id="courtName" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lat" class="form-control-label">Latitude: </label>
+                        <input class="form-control" type="text" name="lat" placeholder="Latitude" id="lat" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lng" class="form-control-label">Longitude: </label>
+                        <input class="form-control" type="text" name="lng" placeholder="Longitude" id="lng" />
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Favorite</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 
@@ -97,15 +119,35 @@ $lng = $_GET['lng'];
         var infowindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker) {
             return function() {
-                var content = `<p class="info-font-title">${name}</p>
-             <p class="info-font-body">Vicinity: ${vin}</p>
-             <p class="info-font-body">Rating: ${rating}</p>
-             <a href="/front-end/">Home</a>
+                var content = `
+                <p class="info-font-title">${name}</p>
+                <p class="info-font-body">Vicinity: ${vin}</p>
+                <p class="info-font-body">Rating: ${rating}</p>
+                <p class="info-font-body">Latitude: ${lat}</p>
+                <p class="info-font-body">Longitude: ${lng}</p>
+               
              `;
+
+
                 infowindow.setContent(content);
                 infowindow.open(map, marker);
             }
         })(marker));
+
+    }
+
+    const favoriteCourt = async () => {
+        await fetch('../back-end/location/createFavoriteCourt.php', {
+                body: new URLSearchParams(new FormData(document.getElementById("favCourtForm"))).toString(),
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                method: "post"
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            });
 
     }
 </script>
