@@ -10,8 +10,7 @@ function getFavCourts($dbConn) {
     $query = "SELECT JSON_OBJECT(
         'id', c.id,
         'name', c.court_name,
-        'latitude',  c.lat,
-        'longitude', c.lng) as FavoriteCourts
+        'location',  c.location) as FavoriteCourts
         FROM  FavoriteCourt c;";
 
     return @mysqli_query($dbConn, $query);

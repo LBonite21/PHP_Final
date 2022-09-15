@@ -21,16 +21,11 @@ $lng = $_GET['lng'];
                         <input class="form-control" type="text" name="courtName" placeholder="Court Name" id="courtName" />
                     </div>
                     <div class="form-group">
-                        <label for="lat" class="form-control-label">Latitude: </label>
-                        <input class="form-control" type="text" name="lat" placeholder="Latitude" id="lat" />
+                        <label for="location" class="form-control-label">Location: </label>
+                        <input class="form-control" type="text" name="location" placeholder="Location" id="location" />
                     </div>
                     <div class="form-group">
-                        <label for="lng" class="form-control-label">Longitude: </label>
-                        <input class="form-control" type="text" name="lng" placeholder="Longitude" id="lng" />
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Favorite</button>
+                        <button type="submit" id="favBtn" class="btn btn-primary">Favorite</button>
                         <p id="success" class="text-success"></p>
                     </div>
                 </form>
@@ -122,11 +117,8 @@ $lng = $_GET['lng'];
             return function() {
                 var content = `
                 <p class="info-font-title">${name}</p>
-                <p class="info-font-body">Vicinity: ${vin}</p>
+                <p class="info-font-body">Location: ${vin}</p>
                 <p class="info-font-body">Rating: ${rating}</p>
-                <p class="info-font-body">Latitude: ${lat}</p>
-                <p class="info-font-body">Longitude: ${lng}</p>
-               
              `;
 
 
@@ -152,6 +144,23 @@ $lng = $_GET['lng'];
             });
 
     }
+
+    const favBtn = document.getElementById('favBtn');
+
+    favBtn.addEventListener('click', function handleClick(evt) {
+
+        favoriteCourt();
+        evt.preventDefault();
+
+        const courtNameInput = document.getElementById('courtName');
+        const locationInput = document.getElementById('location');
+
+        courtNameInput.value = '';
+        locationInput.value = '';
+
+
+    });
+
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMjeysXDI0PhnFpUtplTd75RLojAFEI9k&callback=init_Map"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3S5LbcgQu-7Y7zVBbSgTHU_crRbvQ2BQ&callback=init_Map"></script>
 <?php include "footer.php" ?>

@@ -30,7 +30,7 @@ include "header.php";
         .then(data => {
             const catList = document.getElementById("favCourts");
             data.forEach(court => {
-                catList.innerHTML += `<li>${court.name}</li>`
+                catList.innerHTML += `<li>${court.name}: ${court.location}</li>`
             });
         });
     }
