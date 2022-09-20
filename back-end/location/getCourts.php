@@ -2,7 +2,7 @@
 include_once "../dbUtils.php";
 
 function getCourts($lat, $lng) {
-    $API_KEY = "AIzaSyD3S5LbcgQu-7Y7zVBbSgTHU_crRbvQ2BQ";
+    $API_KEY = "{ API KEY GOES HERE }";
     
     $courts = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$lat.','.$lng.'&keyword=basketballcourt&radius=50000&rankby=prominence&key='.$API_KEY;
 

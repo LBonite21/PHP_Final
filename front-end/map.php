@@ -162,5 +162,5 @@ $lng = $_GET['lng'];
     });
 
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3S5LbcgQu-7Y7zVBbSgTHU_crRbvQ2BQ&callback=init_Map"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={ API KEY GOES HERE }&callback=init_Map"></script>
 <?php include "footer.php" ?>
