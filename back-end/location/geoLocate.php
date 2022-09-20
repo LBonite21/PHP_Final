@@ -3,7 +3,7 @@ include_once "../dbUtils.php";
 
 function getLocation($address) {
     // $address = "3428 S 700 E, Salt Lake City, UT";
-    $API_KEY = "AIzaSyDMjeysXDI0PhnFpUtplTd75RLojAFEI9k";
+    $API_KEY = "{ API KEY GOES HERE }";
 
     $location = "https://maps.google.com/maps/api/geocode/json?key=".$API_KEY."&address=".str_replace(" ", "+", $address);
 
